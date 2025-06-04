@@ -1,0 +1,22 @@
+.zoomable-chart-container {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  touch-action: pinch-zoom;
+  user-select: none;
+}
+.zoomable-chart-container button {
+  border: 1px solid #bbb;
+  background: #f9f9f9;
+  padding: 2px 15px;
+  border-radius: 5px;
+  margin: 0 2px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.zoomable-chart-container button:active {
+  background: #e3e3e3;
+}

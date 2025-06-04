@@ -1,0 +1,221 @@
+.bp-fullpage-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: #f9fafd;
+}
+.bp-sidebar-toggle-btn {
+  position: fixed;
+  left: 24px;
+  bottom: 36px;
+  z-index: 2002;
+  background: #3c6df0;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 10px 34px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.17s;
+}
+.bp-sidebar-toggle-btn:hover {
+  background: #2546b9;
+}
+.bp-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 375px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fafbfe;
+  box-shadow: 2px 0 16px #0002;
+  z-index: 2003;
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(.47,1.64,.41,.8);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.bp-sidebar.open {
+  transform: translateX(0);
+}
+.bp-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 20px 8px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-bottom: 1px solid #eee;
+}
+.bp-sidebar-close-btn {
+  background: none;
+  border: none;
+  color: #c00;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 700;
+  margin-left: 8px;
+}
+.bp-sidebar .bp-dataentry-table-wrapper {
+  padding: 18px 18px 0 18px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+.bp-sidebar-addrow, .bp-sidebar-save {
+  margin-left: 20px;
+  margin-bottom: 8px;
+  width: calc(100% - 40px);
+}
+.bp-sidebar-save { margin-bottom: 30px; }
+
+.bp-sidebar-overlay {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: #0005;
+  z-index: 2000;
+  animation: fadeInSidebarOverlay .3s;
+}
+@keyframes fadeInSidebarOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.bp-layout-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  background: #f9fafd;
+}
+.bp-right-panel {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 24px 40px 24px 40px;
+}
+.bp-save-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.bp-save-status {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.bp-save-success {
+  color: #1cbc17;
+}
+.bp-save-error {
+  color: #c81a1a;
+}
+.bp-grid-section {
+  margin-top: 22px;
+}
+.bp-grid-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.bp-grid-table {
+  border: 1px solid #c8c8c8;
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+  min-width: 800px;
+}
+.bp-grid-table th,
+.bp-grid-table td {
+  border: 1px solid #e5e5ef;
+  min-width: 45px;
+  height: 32px;
+  padding: 0;
+  font-size: 1rem;
+  text-align: left;
+  background: #f8fafd;
+}
+.bp-grid-cell input {
+  width: 98%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  padding: 4px 2px;
+}
+.bp-label-placeholder {
+  color: #aaa;
+}
+.bp-section-header {
+  background: #e7e7ef !important;
+  font-weight: 600;
+}
+.bp-label-cell {
+  padding-left: 8px;
+}
+.bp-highlight-color-select {
+  min-width: 80px;
+  font-size: 1rem;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background: #3c6df0;
+  color: #fff;
+  padding: 6px 14px;
+  margin: 0 2px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.18s;
+}
+button:hover {
+  background: #1e51c7;
+}
+button[disabled] {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Freeze first row and first two columns */
+.freeze-table th.freeze-col,
+.freeze-table td.freeze-col {
+  position: sticky;
+  left: 0;
+  background: #e7e7ef;
+  z-index: 2;
+}
+.freeze-table th.freeze-head {
+  position: sticky;
+  top: 0;
+  background: #e7e7ef;
+  z-index: 3;
+}
+.freeze-table td.freeze-row,
+.freeze-table th.freeze-row {
+  position: sticky;
+  top: 0;
+  background: #e7e7ef;
+  z-index: 2;
+}
+.freeze-table td.freeze-col {
+  z-index: 3;
+}
+.freeze-table th.freeze-col:nth-child(2),
+.freeze-table td.freeze-col:nth-child(2) {
+  left: 90px;
+}
+.freeze-table th.freeze-head.freeze-col,
+.freeze-table td.freeze-row.freeze-col {
+  z-index: 4;
+}
+
+.highlighted,
+.bp-grid-cell.highlighted input {
+  background: #ffe066 !important;
+}

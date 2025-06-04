@@ -1,0 +1,60 @@
+.patient-profile-container {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+.profile-card {
+  padding: 1rem;
+}
+.profile-tabs {
+   display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid #c9d2e6;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background: white;    /* To prevent content from showing behind */
+  z-index: 1000;        /* Makes sure it's above other content */
+  padding: 1rem 2rem;   /* Optional, adjust as needed */
+}
+.profile-tabs button {
+  background: none;
+  border: none;
+  font-size: 1.1em;
+  padding: 0.5em 1.2em;
+  color: #254891;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-tabs button.active {
+  background: #e1eafc;
+  color: #182d59;
+  border-bottom: 2px solid #4173c3;
+}
+.profile-tab-content {
+  margin-top: 1em;
+}
+.tab-form {
+  padding: 1.5em 0.5em 0.5em 0.5em;
+}
+.tab-form-actions {
+  display: flex;
+  gap: 1.5em;
+  position: sticky;
+  bottom: 0;
+  margin-top: 1.5em;
+}
+.form-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
+  margin-bottom: 20px;
+}
+@media (max-width: 700px) {
+  .form-grid2 {
+    grid-template-columns: 1fr;
+  }
+}
