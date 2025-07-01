@@ -18,6 +18,7 @@ const SECTIONS = [
   { id: "airway", label: "Airway Assessment" },
   { id: "surgery", label: "Surgery" },
   { id: "qol", label: "Current Quality of Life" },
+  { id: "anaesthesia", label: "Anaesthesia" } // Added Anaesthesia tab
 ];
 
 export default function PreOpForm({ patient, onSave }) {
@@ -40,7 +41,15 @@ export default function PreOpForm({ patient, onSave }) {
     // Neuro & Other
     "crp", "bloodCulture", "vdrl", "hiv", "tppa", "hepA", "hbsAg", "hbeAg", "hepatitisCAb", "mantoux", "mrsa", "neuroOther",
     // Other
-    "allergies", "currentMedication", "previousSurgeries", "asaCategory"
+    "allergies", "currentMedication", "previousSurgeries", "asaCategory",
+    // Newly added fields for Airway Assessment
+    "airway", "mouthNeckTeeth", "mallampati", "thyromental",
+    // Newly added fields for Surgery
+    "surgeryDate", "proposedSurgery", "anaesthetists", "surgeons", "whoChecklist",
+    // Newly added fields for Current Quality of Life
+    "mets", "frailty", "sarcopenia", "prehabPlan", "targets", "progress",
+    // Newly added fields for Anaesthesia Plan
+    "anaesthesiaType", "anaesthesiaPlan", "specialConcerns", "specialEquipment"
   ];
 
   // Initialize form data from localStorage or patient prop
@@ -335,7 +344,17 @@ export default function PreOpForm({ patient, onSave }) {
     return (
       <div style={{padding: "2em 0"}}>
         <h2>Airway Assessment</h2>
-        <p style={{color: "#888"}}>Airway assessment fields coming soon...</p>
+       <div className="form-grid2">
+               <Label>Airway</Label>
+              <Input name="airway" value={formData.airway} onChange={handleChange} />
+             <Label>Mouth/Neck/Teeth</Label>
+            <Input name="mouthNeckTeeth" value={formData.mouthNeckTeeth} onChange={handleChange} />
+             <Label>Mallampati</Label>
+              <Input name="mallampati" value={formData.mallampati} onChange={handleChange} />
+              <Label>Thyro-mental</Label>
+                 <Input name="thyromental" value={formData.thyromental} onChange={handleChange} />
+                
+             </div>
       </div>
     );
   }
@@ -344,7 +363,19 @@ export default function PreOpForm({ patient, onSave }) {
     return (
       <div style={{padding: "2em 0"}}>
         <h2>Surgery</h2>
-        <p style={{color: "#888"}}>Surgery information fields coming soon...</p>
+       <div className="form-grid2">
+                         <Label>Date of Surgery</Label>
+               <Input name="surgeryDate" type="date" value={formData.surgeryDate} onChange={handleChange} />
+             <Label>Proposed Surgery</Label>
+             <Input name="proposedSurgery" value={formData.proposedSurgery} onChange={handleChange} />
+               
+               <Label>Anaesthetist/s</Label>
+                <Input name="anaesthetists" value={formData.anaesthetists} onChange={handleChange} />
+               <Label>Surgeon/s</Label>
+                <Input name="surgeons" value={formData.surgeons} onChange={handleChange} />
+                <Label>WHO surgical safety checklist</Label>
+                <Input name="whoChecklist" value={formData.whoChecklist} onChange={handleChange} />
+              </div>
       </div>
     );
   }
@@ -353,7 +384,40 @@ export default function PreOpForm({ patient, onSave }) {
     return (
       <div style={{padding: "2em 0"}}>
         <h2>Current Quality of Life</h2>
-        <p style={{color: "#888"}}>Quality of life fields coming soon...</p>
+                  <div className="form-grid2">
+              <Label>Current METs</Label>
+               <Input name="mets" value={formData.mets} onChange={handleChange} />
+              <Label>Liver Frailty Index</Label>
+              <Input name="frailty" value={formData.frailty} onChange={handleChange} />
+              <Label>Sarcopenia</Label>
+             <Input name="sarcopenia" value={formData.sarcopenia} onChange={handleChange} />
+              <Label>Prehabilitation Plan & Discussion</Label>
+               <Input name="prehabPlan" value={formData.prehabPlan} onChange={handleChange} />
+              <Label>Targets</Label>
+            <Input name="targets" value={formData.targets} onChange={handleChange} />
+               <Label>Progress</Label>
+               <Input name="progress" value={formData.progress} onChange={handleChange} />
+              </div>
+      </div>
+    );
+  }
+
+   function renderAnaesthesia() {
+    return (
+      <div style={{padding: "2em 0"}}>
+        <h2>Anaesthesia</h2>
+              <div className="form-grid2">
+                
+                <Label>Type of Anaesthesia</Label>
+                <Input name="anaesthesiaType" value={formData.anaesthesiaType} onChange={handleChange} />
+                <Label>Anaesthesia Plan and MDT Discussion</Label>
+                <Input name="anaesthesiaPlan" value={formData.anaesthesiaPlan} onChange={handleChange} />
+                <Label>Special Concerns/risks</Label>
+                <Input name="specialConcerns" value={formData.specialConcerns} onChange={handleChange} />
+                <Label>Special Equipment Requirements</Label>
+                <Input name="specialEquipment" value={formData.specialEquipment} onChange={handleChange} />
+               
+              </div>
       </div>
     );
   }
@@ -362,6 +426,7 @@ export default function PreOpForm({ patient, onSave }) {
     switch (activeSection) {
       case "comorbidities": return renderComorbidities();
       case "airway": return renderAirway();
+      case "anaesthesia": return renderAnaesthesia();
       case "surgery": return renderSurgery();
       case "qol": return renderQOL();
       default: return null;

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { addPatient } from "../api/api";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
 import PatientForm from "./AddPatientForm";
 
 const LOCAL_STORAGE_KEY = "add-patient-form-data";
@@ -1712,18 +1715,18 @@ export default function AddPatientPage() {
 // //           <Card className="mb-8 shadow-lg">
 // //             <CardContent>
 // //               <h2>Anesthesia Information</h2>
-// //               <div className="form-grid2">
+              // <div className="form-grid2">
                 
-// //                 <Label>Type of Anaesthesia</Label>
-// //                 <Input name="anaesthesiaType" value={formData.anaesthesiaType} onChange={handleChange} />
-// //                 <Label>Anaesthesia Plan and MDT Discussion</Label>
-// //                 <Input name="anaesthesiaPlan" value={formData.anaesthesiaPlan} onChange={handleChange} />
-// //                 <Label>Special Concerns/risks</Label>
-// //                 <Input name="specialConcerns" value={formData.specialConcerns} onChange={handleChange} />
-// //                 <Label>Special Equipment Requirements</Label>
-// //                 <Input name="specialEquipment" value={formData.specialEquipment} onChange={handleChange} />
+              //   <Label>Type of Anaesthesia</Label>
+              //   <Input name="anaesthesiaType" value={formData.anaesthesiaType} onChange={handleChange} />
+              //   <Label>Anaesthesia Plan and MDT Discussion</Label>
+              //   <Input name="anaesthesiaPlan" value={formData.anaesthesiaPlan} onChange={handleChange} />
+              //   <Label>Special Concerns/risks</Label>
+              //   <Input name="specialConcerns" value={formData.specialConcerns} onChange={handleChange} />
+              //   <Label>Special Equipment Requirements</Label>
+              //   <Input name="specialEquipment" value={formData.specialEquipment} onChange={handleChange} />
                
-// //               </div>
+              // </div>
 // //             </CardContent>
 // //           </Card>
 // //         );

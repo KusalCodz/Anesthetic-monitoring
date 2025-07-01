@@ -8,7 +8,7 @@ export const Card = ({ children, style = {}, className = '' }) => (
       border: "1px solid rgb(77, 125, 221)",
       padding: "1rem",
       background: "#fff",
-      width : "100%",
+      width : "75%",
       height:"25%",
       position: "relative",
        /* moves 10px down */

@@ -7,7 +7,7 @@ import AddPatientPage from "./views/AddPatientPage";
 import CurrentPatientsPage from "./views/CurrentPatientsPage";
 import ChartPage from "./views/ChartPage";
 import PatientFormViewPage from "./views/PatientFormViewPage"; // for viewing patient form
-import EditPatientPage from "./views/EditPatientPage";
+// import EditPatientPage from "./views/EditPatientPage";
 import NotFoundPage from "./views/NotFoundPage";
 import PatientMonitoringViewPage from './views/PatientMonitoringViewPage';
 import PatientProfilePage from './components/PatientProfile'; // <-- NEW: import PatientProfilePage
@@ -53,10 +53,10 @@ export default function AppRoutes({ selectedPatient, setSelectedPatient }) {
         path="/patients/:id/grid"
         element={<ChartPage />}
       />
-      <Route
+      {/* <Route
         path="/patients/:id/edit"
         element={<EditPatientPage />}
-      />
+      /> */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

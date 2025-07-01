@@ -1,7 +1,7 @@
 /* Example patient form custom styles */
 
 .patient-form-container {
-  width: 1500px;           /* Increase as needed, e.g. 1000px or use max-width for responsiveness */
+  width: 1000px;           /* Increase as needed, e.g. 1000px or use max-width for responsiveness */
   max-width: 98vw;
   margin: 40px auto;      /* This centers the container horizontally and adds vertical space */
   padding: 2rem;

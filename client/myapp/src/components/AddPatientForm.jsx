@@ -15,8 +15,9 @@ export default function PatientForm({
   disabled = false,
 }) {
   return (
-    <Card className="mb-8 shadow-lg border-t-4 border-blue-500">
-      <CardContent>
+    // <Card className="mb-8 shadow-lg border-t-4 border-blue-500">
+    //   <CardContent>
+    <div>
         <h2>Patient Information</h2>
         <div className="form-grid2">
           <Label htmlFor="name">Name</Label>
@@ -100,8 +101,8 @@ export default function PatientForm({
             </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+        </div>
+   
   );
 }
 

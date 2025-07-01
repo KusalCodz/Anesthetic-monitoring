@@ -7,8 +7,10 @@ import PatientDetailsForm from "../components/PatientDetailsForm";
 import PreOpForm from "../components/PreOpForm";
 import IntraOpForm from "../components/IntraOpForm";
 import PostOpForm from "../components/PostOpForm";
+import PatientSummary from "../components/PatientSummary";
 
 const TABS = [
+  { id: "summary", label: "Profile Summary" },
   { id: "patient-details", label: "Patient Details" },
   { id: "pre-op", label: "Pre Op" },
   { id: "intra-op", label: "Intra Op Monitoring" },
@@ -18,9 +20,8 @@ const TABS = [
 export default function PatientProfile() {
   const { id } = useParams();
   const [patient, setPatient] = useState(null);
-  const [activeTab, setActiveTab] = useState("patient-details");
   const [loading, setLoading] = useState(true);
-
+  const [activeTab, setActiveTab] = useState("summary");
   useEffect(() => {
     async function fetchPatient() {
       setLoading(true);
@@ -53,6 +54,7 @@ export default function PatientProfile() {
 
   return (
     <div className="patient-profile-container">
+
       <Card className="profile-card">
         <CardContent>
           <div className="profile-tabs">
@@ -67,6 +69,10 @@ export default function PatientProfile() {
             ))}
           </div>
           <div className="profile-tab-content">
+            {activeTab === "summary" && (
+              <PatientSummary patient={patient} />
+            )}
+            
             {activeTab === "patient-details" && (
               <PatientDetailsForm
                 patient={patient}

@@ -75,14 +75,14 @@ function PatientTable({ patients, onDelete, deletingId, navigate }) {
                     </>
                   ) : "Delete"}
                 </Button>
-                <Button
+                {/* <Button
                   size="sm"
                   onClick={() => navigate(`/patients/${patient.id}/edit`)}
                   title="Update patient"
                   aria-label={`Update ${patient.name}`}
                 >
                   Update
-                </Button>
+                </Button> */}
               </div>
             </td>
           </tr>
