@@ -18,9 +18,9 @@
   left: 0;
   right: 0;
 
-  background: white;    /* To prevent content from showing behind */
-  z-index: 1000;        /* Makes sure it's above other content */
-  padding: 1rem 2rem;   /* Optional, adjust as needed */
+  background: white;    
+  z-index: 1000;        
+  padding: 1rem 2rem;   
 }
 .profile-tabs-left button {
   margin-right: 1rem;

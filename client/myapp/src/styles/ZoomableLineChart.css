@@ -5,7 +5,7 @@
   margin-bottom: 20px;
   overflow-x: auto;
   touch-action: pinch-zoom;
-  user-select: none;
+  /* user-select: none; */
 }
 .zoomable-chart-container button {
   border: 1px solid #bbb;
