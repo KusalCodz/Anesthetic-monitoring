@@ -311,8 +311,6 @@ export default function BloodPressureGrid({ patient }) {
   }, [patient.id, dataRows, grid, highlightedCells, editableLabels]);
 
   useEffect(() => {
-    const saved = localStorage.getItem(getDraftKey(patient.id));
-    if (saved) return;
     setLoading(true);
     axios.get(`http://localhost:5000/api/monitoring/${patient.id}`).then(res => {
       if (res.data && res.data.length > 0) {
@@ -360,11 +358,30 @@ export default function BloodPressureGrid({ patient }) {
               ]
             : [...defaultEditableLabels]
         );
+        // Overwrite any local draft with latest backend data
+        localStorage.setItem(
+          getDraftKey(patient.id),
+          JSON.stringify({
+            dataRows: Array.isArray(d.dataRows) ? d.dataRows : defaultDataRows,
+            grid: Array.isArray(d.grid) ? d.grid : defaultGrid,
+            highlightedCells: Array.isArray(d.highlightedCells) ? d.highlightedCells : [],
+            editableLabels: Array.isArray(d.editableLabels) ? d.editableLabels : defaultEditableLabels,
+          })
+        );
       } else {
         setDataRows([...defaultDataRows]);
         setGrid([...defaultGrid]);
         setHighlightedCells(new Map());
         setEditableLabels([...defaultEditableLabels]);
+        localStorage.setItem(
+          getDraftKey(patient.id),
+          JSON.stringify({
+            dataRows: defaultDataRows,
+            grid: defaultGrid,
+            highlightedCells: [],
+            editableLabels: defaultEditableLabels,
+          })
+        );
       }
       setLoading(false);
     });

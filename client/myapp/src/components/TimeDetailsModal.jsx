@@ -35,6 +35,11 @@ export default function TimeDetailsModal({ open, onClose, time, chartVals, gridV
             </tbody>
           </table>
         </div>
+        <div style={{ textAlign: "right", marginTop: 20 }}>
+          <button className="modal-bottom-close" onClick={onClose} style={{ padding: "6px 18px", fontSize: 16 }}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ const TABS = [
   { id: "pre-op", label: "Pre Op" },
   { id: "intra-op", label: "Intra Op Monitoring" },
   { id: "post-op", label: "Post Op" },
+  { id: "chart", label: "Monitoring Chart" } 
 ];
 
 export default function PatientProfile() {
@@ -58,21 +59,27 @@ export default function PatientProfile() {
       <Card className="profile-card">
         <CardContent>
           <div className="profile-tabs">
-            {TABS.map(tab => (
+            <div className="profile-tabs-left">
+              {TABS.filter(tab => tab.id !== "chart").map(tab => (
+                <button
+                  key={tab.id}
+                  className={activeTab === tab.id ? "active" : ""}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <div className="profile-tabs-right">
               <button
-                key={tab.id}
-                className={activeTab === tab.id ? "active" : ""}
-                onClick={() => setActiveTab(tab.id)}
+                className="monitoring-chart-btn"
+                onClick={() => window.location.href = `/patients/${id}/grid`}
               >
-                {tab.label}
+                Monitoring Chart
               </button>
-            ))}
+            </div>
           </div>
           <div className="profile-tab-content">
-            {activeTab === "summary" && (
-              <PatientSummary patient={patient} />
-            )}
-            
             {activeTab === "patient-details" && (
               <PatientDetailsForm
                 patient={patient}

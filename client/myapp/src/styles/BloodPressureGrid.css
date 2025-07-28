@@ -5,8 +5,9 @@
 }
 .bp-sidebar-toggle-btn {
   position: fixed;
-  left: 24px;
+  right: 24px;
   bottom: 36px;
+  left: auto;
   z-index: 2002;
   background: #3c6df0;
   color: #fff;
@@ -25,14 +26,15 @@
 .bp-sidebar {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
+  left: auto;
   width: 375px;
   max-width: 90vw;
   height: 100vh;
   background: #fafbfe;
-  box-shadow: 2px 0 16px #0002;
+  box-shadow: -2px 0 16px #0002;
   z-index: 2003;
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: transform 0.32s cubic-bezier(.47,1.64,.41,.8);
   display: flex;
   flex-direction: column;
@@ -74,7 +76,8 @@
 
 .bp-sidebar-overlay {
   position: fixed;
-  left: 0; top: 0;
+  right: 0; top: 0;
+  left: 0;
   width: 100vw; height: 100vh;
   background: #0005;
   z-index: 2000;

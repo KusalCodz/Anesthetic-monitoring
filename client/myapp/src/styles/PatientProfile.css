@@ -8,6 +8,8 @@
 }
 .profile-tabs {
    display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1.5rem;
   border-bottom: 1px solid #c9d2e6;
 
@@ -19,6 +21,13 @@
   background: white;    /* To prevent content from showing behind */
   z-index: 1000;        /* Makes sure it's above other content */
   padding: 1rem 2rem;   /* Optional, adjust as needed */
+}
+.profile-tabs-left button {
+  margin-right: 1rem;
+}
+.profile-tabs-right {
+  display: flex;
+  align-items: center;
 }
 .profile-tabs button {
   background: none;
@@ -34,6 +43,21 @@
   background: #e1eafc;
   color: #182d59;
   border-bottom: 2px solid #4173c3;
+}
+.monitoring-chart-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7em 1.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  transition: background 0.2s;
+}
+.monitoring-chart-btn:hover {
+  background: #1565c0;
 }
 .profile-tab-content {
   margin-top: 1em;
